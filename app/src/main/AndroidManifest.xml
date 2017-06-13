@@ -18,29 +18,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="847hDC0BxmZxuhKtQpfIyrVYZ34eQFEz" />
 
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".SearchResultActivity">
+        <activity
+            android:name=".HomeActivity"
+            android:label="DiscountInformer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SearchResultActivity" />
         <activity android:name=".DiscountInfoActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
 
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote">
-        </service>
+            android:process=":remote"></service>
 
+        <activity android:name=".SearchActivity"></activity>
     </application>
 
 </manifest>

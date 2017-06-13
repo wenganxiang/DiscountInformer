@@ -29,7 +29,7 @@ public class SearchResultActivity extends AppCompatActivity {
         //一下一行代码仅做测试用
         initDiscountList();
         Intent intent = getIntent();//获得上一个页面的intent
-        searchResult = intent.getStringExtra("from_search_edit");//获取上一个活动的搜索框的文字
+        searchResult = intent.getStringExtra("searchWord");//获取上一个活动的搜索框的文字
         //从服务器中调用带有搜索文字的数据返回到界面中来
 
         button_back_to_homepage = (Button) findViewById(R.id.button_back_to_homepage);
@@ -43,6 +43,14 @@ public class SearchResultActivity extends AppCompatActivity {
         });
         button_search2 = (Button) findViewById(R.id.button_search_result_search);
         editText2 = (EditText) findViewById(R.id.edit_text_search2);
+        editText2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SearchResultActivity.this, SearchActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         button_search2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//根据搜索框的内容更新recyclerview
@@ -68,6 +76,7 @@ public class SearchResultActivity extends AppCompatActivity {
             discountAbstractInfos.add(new DiscountAbstractInfo("Nike全场五折起！", R.drawable.nike));
             discountAbstractInfos.add(new DiscountAbstractInfo("Adidas龙华天虹店6折起", R.drawable.adidas));
             discountAbstractInfos.add(new DiscountAbstractInfo("以纯全市满300减50", R.drawable.yishion));
+
         }
     }
 

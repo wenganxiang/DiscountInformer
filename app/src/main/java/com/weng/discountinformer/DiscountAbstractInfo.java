@@ -1,6 +1,8 @@
 //打折的摘要信息，包括商家的logo和打折信息的标题，用于显示在打折信息列表中
 package com.weng.discountinformer;
 
+import android.media.Image;
+
 /**
  * Created by Weng Anxiang on 2017/3/11.
  */
@@ -18,6 +20,14 @@ public class DiscountAbstractInfo {
     public String getTitle()
     {
         return title;
+    }
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
+    public void setSellerLogoId(int logoId)
+    {
+        this.sellerLogoId = logoId;
     }
     public int getImageId()
     {
