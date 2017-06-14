@@ -13,12 +13,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 /**
  * Created by Weng Anxiang on 2017/3/11.
  */
 public class HomeActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
-    private EditText editText;
+    //private EditText editText;
+    private TextView searchTextView;
     //private Button search_button;
 
     @Override
@@ -57,8 +63,18 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+        searchTextView = (TextView) findViewById(R.id.text_home_search);
+        searchTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(HomeActivity.this, SearchActivity.class);
+                    startActivity(intent);
+            }
+        });
 
-        editText = (EditText) findViewById(R.id.edit_text_search) ;
+        //editText = (EditText) findViewById(R.id.edit_text_search) ;
+        /*
+        //下面代码导致程序退出！
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +82,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        */
         /*
         search_button = (Button) findViewById(R.id.button_home_search);
         search_button.setOnClickListener(new View.OnClickListener() {

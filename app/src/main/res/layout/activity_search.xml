@@ -7,7 +7,9 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <Button
             android:id="@+id/button_search_back"
@@ -15,15 +17,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
             android:text="返回"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_action_search_dark"/>
+
         <EditText
             android:id="@+id/edit_text_search"
             android:layout_width="1dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5"/>
+            android:layout_weight="5"
+            android:background="@null"
+            android:drawableLeft="@drawable/ic_search_black_18dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/clear_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_highlight_off_black_18dp"
+            android:layout_gravity="center"
+            />
         <Button
             android:id="@+id/button_search_search"
             android:layout_width="1dp"
@@ -40,6 +48,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/search_history_layout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

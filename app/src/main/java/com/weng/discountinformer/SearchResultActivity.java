@@ -16,7 +16,7 @@ import java.util.List;
 
 public class SearchResultActivity extends AppCompatActivity {
     private List<DiscountAbstractInfo> discountAbstractInfos = new ArrayList<>();
-    String searchResult;
+    String searchWord;
     Button button_back_to_homepage;
     Button button_search2;
     EditText editText2;
@@ -26,10 +26,12 @@ public class SearchResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
+
         //一下一行代码仅做测试用
         initDiscountList();
+
         Intent intent = getIntent();//获得上一个页面的intent
-        searchResult = intent.getStringExtra("searchWord");//获取上一个活动的搜索框的文字
+        searchWord = intent.getStringExtra("searchWord");//获取上一个活动的搜索框的文字
         //从服务器中调用带有搜索文字的数据返回到界面中来
 
         button_back_to_homepage = (Button) findViewById(R.id.button_back_to_homepage);
