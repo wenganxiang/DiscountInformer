@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar_home);
         setSupportActionBar(toolbar);
 
         //用户左拉菜单
@@ -54,12 +54,13 @@ public class HomeActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
         }
-        navigationView.setCheckedItem(R.id.user_profile);
+        //navigationView.setCheckedItem(R.id.user_profile);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawers();
+                //在此添加点击事件逻辑
                 return true;
             }
         });

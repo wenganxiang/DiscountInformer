@@ -4,14 +4,14 @@
         <item
             android:id="@+id/user_profile"
             android:icon="@drawable/profile"
-            android:title="Profile"/>
+            android:title="个人资料"/>
         <item
             android:id="@+id/my_collection"
             android:icon="@drawable/ic_action_star"
-            android:title="My Collocetion"/>
+            android:title="我的收藏"/>
         <item
             android:id="@+id/setting"
             android:icon="@drawable/setting"
-            android:title="Setting"/>
+            android:title="设置"/>
     </group>
 </menu>

@@ -1,4 +1,4 @@
-package com.weng.discountinformer;
+package com.weng.discountinformer.user;
 
 /**
  * Created by Weng Anxiang on 2017/2/23.

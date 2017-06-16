@@ -1,4 +1,4 @@
-package com.weng.discountinformer;
+package com.weng.discountinformer.user;
 
 import android.media.Image;
 

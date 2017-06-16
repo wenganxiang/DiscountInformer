@@ -3,24 +3,48 @@ package com.weng.discountinformer;
  * Created by Weng Anxiang on 2017/3/11.
  */
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.weng.discountinformer.adapter.DiscountListAdapter;
+import com.weng.discountinformer.util.LogUtil;
+import com.weng.discountinformer.util.Utility;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SearchResultActivity extends AppCompatActivity {
+
     private List<DiscountAbstractInfo> discountAbstractInfos = new ArrayList<>();
-    String searchWord;
-    Button button_back_to_homepage;
-    Button button_search2;
-    EditText editText2;
-    RecyclerView recyclerView;
+    private Button button_back_to_homepage;
+    //private RecyclerView recyclerView;
+    private ListView listViewSearchResult;
+    private TextView textViewTop;
+
+    private String searchWord;//从上一个活动获得的搜索词
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LogUtil.d("SearchResult", "Destroyed");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LogUtil.d("SearchResult", "Start");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +57,7 @@ public class SearchResultActivity extends AppCompatActivity {
         Intent intent = getIntent();//获得上一个页面的intent
         searchWord = intent.getStringExtra("searchWord");//获取上一个活动的搜索框的文字
         //从服务器中调用带有搜索文字的数据返回到界面中来
+        queryServer(searchWord);
 
         button_back_to_homepage = (Button) findViewById(R.id.button_back_to_homepage);
         button_back_to_homepage.setOnClickListener(new View.OnClickListener() {
@@ -43,29 +68,41 @@ public class SearchResultActivity extends AppCompatActivity {
                 finish();
             }
         });
-        button_search2 = (Button) findViewById(R.id.button_search_result_search);
-        editText2 = (EditText) findViewById(R.id.edit_text_search2);
-        editText2.setOnClickListener(new View.OnClickListener() {
+
+        textViewTop = (TextView) findViewById(R.id.text_view_search_result);
+        textViewTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SearchResultActivity.this, SearchActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
-        button_search2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {//根据搜索框的内容更新recyclerview
-                String s = editText2.getText().toString();
-                //下面的代码应该根据s更新recyclerview
 
-            }
-        });
+
+        /*
         recyclerView = (RecyclerView) findViewById(R.id.serch_result_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         DiscountListTitleAdapter adapter = new DiscountListTitleAdapter(discountAbstractInfos);
         recyclerView.setAdapter(adapter);
+        */
+        //recyclerView的点击事件在DiscountListTitleAdapter中的onClick()方法中完成
+
+        DiscountListAdapter discountListAdapter = new DiscountListAdapter(SearchResultActivity.this, R.layout.discount_item, discountAbstractInfos);
+        listViewSearchResult = (ListView) findViewById(R.id.list_view_search_result);
+        listViewSearchResult.setAdapter(discountListAdapter);
+        listViewSearchResult.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DiscountAbstractInfo info = discountAbstractInfos.get(position);
+                String title = info.getTitle();
+                Intent intent  = new Intent(SearchResultActivity.this, DiscountInfoActivity.class);
+                intent.putExtra("title", title);
+                startActivity(intent);
+            }
+        });
+
+
     }
     private void initDiscountList()
     {
@@ -82,4 +119,8 @@ public class SearchResultActivity extends AppCompatActivity {
         }
     }
 
+    private void queryServer(String keyword)
+    {
+
+    }
 }

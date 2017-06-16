@@ -16,34 +16,35 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:text="返回"/>
-        <EditText
-            android:id="@+id/edit_text_search2"
+        <TextView
+            android:id="@+id/text_view_search_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/button_back_to_homepage"
             android:hint="请输入你要找的商品或品牌"
             android:layout_weight="1"
-            android:layout_toRightOf="@+id/back_to_homepage"
+            android:layout_toRightOf="@+id/button_back_to_homepage"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:textSize="18sp"
+            android:drawableLeft="@drawable/ic_search_black_18dp"/>
 
-        <Button
-            android:id="@+id/button_search_result_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="搜索"
-            android:layout_alignTop="@+id/edit_text2"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
     </LinearLayout>
 
     <!--下面还应该添加一个限制打折信息列表的recycleview -->
+
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/list_view_search_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+        <!--
     <android.support.v7.widget.RecyclerView
         android:id="@+id/serch_result_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>-->
     </LinearLayout>
 </LinearLayout>

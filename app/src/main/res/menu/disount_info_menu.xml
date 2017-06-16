@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_share"
+        android:title="分享"/>
+    <item
+        android:id="@+id/item_collect"
+        android:title="收藏"/>
+    <item
+        android:id="@+id/item_collect_store"
+        android:title="关注本店"/>
+</menu>

@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.weng.discountinformer.user.User;
+
 /**
  * Created by Weng Anxiang on 2017/3/11.
  */
@@ -114,6 +116,11 @@ public class UserDataManager {
             Log.d(TAG, "findUserByName, result=" + result);
         }
         return result;//返回1则说明用户存在
+    }
+
+    public static boolean isExisted(String s)
+    {
+        return true;
     }
 
 }

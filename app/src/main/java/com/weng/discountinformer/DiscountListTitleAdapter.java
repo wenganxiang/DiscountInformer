@@ -1,5 +1,6 @@
 package com.weng.discountinformer;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +53,8 @@ public class DiscountListTitleAdapter extends RecyclerView.Adapter<DiscountListT
             @Override
             public void onClick(View v) {
                 //点击之后，调用相应的打折详细信息
+               //Intent intent = new Intent(, DiscountInfoActivity.class);
+
             }
         });
         holder.discountTitle.setOnClickListener(new View.OnClickListener(){
